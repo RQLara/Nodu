@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservar cita | Nodu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/citas.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">Nodu</a>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__menu" id="menu">
+      <li><a href="index.html" class="nav__link">Inicio</a></li>
+      <li><a href="quienes-somos.html" class="nav__link">Quiénes somos</a></li>
+      <li><a href="proyectos.html" class="nav__link">Proyectos</a></li>
+      <li><a href="blog.html" class="nav__link">Blog</a></li>
+      <li><a href="citas.html" class="nav__link nav__link--cta active">Reservar cita</a></li>
+    </ul>
+  </nav>
+
+  <section class="cabecera">
+    <span class="label">Asesoría gastronómica</span>
+    <h1>Reserva tu <em>primera</em> cita</h1>
+    <p>Cuéntanos en qué podemos ayudarte. Nos ponemos en contacto en menos de 24 horas.</p>
+  </section>
+
+  <div class="contenido">
+
+    <aside class="columna-info">
+      <h2>¿Cómo funciona?</h2>
+      <p>Rellena el formulario y en breve te contactamos para hablar sobre tu proyecto.</p>
+
+      <div class="linea-acento"></div>
+
+      <div class="pasos">
+        <h3>El proceso</h3>
+        <div class="paso">
+          <span class="paso-num">01</span>
+          <span class="paso-texto">Rellenas el formulario con tus datos</span>
+        </div>
+        <div class="paso">
+          <span class="paso-num">02</span>
+          <span class="paso-texto">Te llamamos o escribimos para concretar</span>
+        </div>
+        <div class="paso">
+          <span class="paso-num">03</span>
+          <span class="paso-texto">Primera sesión sin coste ni compromiso</span>
+        </div>
+      </div>
+
+      <div class="linea-acento"></div>
+
+      <div class="dato-contacto">
+        <strong>Email</strong>
+        <span>contacto@nodu.es</span>
+      </div>
+      <div class="dato-contacto">
+        <strong>Teléfono</strong>
+        <span>+34 600 000 000</span>
+      </div>
+    </aside>
+
+    <div class="tarjeta-formulario">
+
+      <div class="exito" id="exito">
+        <div class="exito-icono">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3>Solicitud enviada</h3>
+        <p>Hemos recibido tus datos y nos pondremos en contacto contigo lo antes posible.</p>
+        <button class="boton-nuevo" onclick="reiniciarFormulario()">Enviar otra solicitud</button>
+      </div>
+
+      <div class="campos" id="campos">
+        <h3>Reserva tu cita</h3>
+        <p class="subtitulo">Todos los campos son obligatorios salvo el mensaje.</p>
+
+        <form id="formularioCitas" novalidate>
+
+          <div class="fila-doble">
+            <div class="campo">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" placeholder="Ej: María" />
+              <span class="mensaje-error" id="errorNombre">Introduce tu nombre</span>
+            </div>
+            <div class="campo">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" placeholder="Ej: García López" />
+              <span class="mensaje-error" id="errorApellidos">Introduce tus apellidos</span>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="Ej: maria@correo.com" />
+            <span class="mensaje-error" id="errorEmail">Introduce un correo válido (Ej: nombre@dominio.com)</span>
+          </div>
+
+          <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="Ej: 612 345 678" />
+            <span class="mensaje-error" id="errorTelefono">Introduce un teléfono válido (Ej: 612 345 678)</span>
+          </div>
+
+          <!-- FECHA Y HORA PERSONALIZADAS -->
+          <div class="fila-doble">
+            <div class="campo">
+              <label for="fecha">Fecha preferida</label>
+              <input type="date" id="fecha" />
+              <span class="mensaje-error" id="errorFecha">Selecciona una fecha</span>
+            </div>
+            <div class="campo">
+              <label>Hora preferida</label>
+              <div class="selector-horas" id="selectorHoras">
+                <button type="button" class="selector-horas__trigger" id="triggerHoras">
+                  Selecciona una hora
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="selector-horas__dropdown" id="dropdownHoras">
+                  <!-- Se genera con JS -->
+                </div>
+              </div>
+              <input type="hidden" id="hora" />
+              <span class="mensaje-error" id="errorHora">Selecciona una hora</span>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" placeholder="Cuéntanos brevemente qué necesitas..." maxlength="300"></textarea>
+            <span class="contador" id="contador">0 / 300</span>
+          </div>
+
+          <div class="fila-check">
+            <input type="checkbox" id="privacidad" />
+            <label for="privacidad">
+              He leído y acepto la <a href="#">política de privacidad</a> y consiento el tratamiento de mis datos para gestionar esta solicitud.
+            </label>
+          </div>
+          <span class="mensaje-error" id="errorPrivacidad">Debes aceptar la política de privacidad para continuar</span>
+
+          <button type="submit" class="boton-enviar" id="botonEnviar">Enviar solicitud</button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="footer__logo">Nodu</span>
+        <p>Asesoría gastronómica para proyectos de hostelería.</p>
+      </div>
+      <div class="footer__links">
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="blog.html">Blog</a>
+        <a href="ideas.html">Cajón de ideas</a>
+        <a href="citas.html">Reservar cita</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Nodu. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/citas.js"></script>
+
+</body>
+</html>

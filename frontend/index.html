@@ -7,11 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-
-  <!-- NAV -->
+ 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav__logo">Nodu</a>
     <button class="nav__hamburger" id="hamburger" aria-label="Menu">
@@ -20,22 +19,21 @@
     </button>
     <ul class="nav__menu" id="menu">
       <li><a href="index.html" class="nav__link active">Inicio</a></li>
-      <li><a href="pages/quienes-somos.html" class="nav__link">Quiénes somos</a></li>
-      <li><a href="pages/proyectos.html" class="nav__link">Proyectos</a></li>
-      <li><a href="pages/blog.html" class="nav__link">Blog</a></li>
-      <li><a href="pages/citas.html" class="nav__link nav__link--cta">Reservar cita</a></li>
+      <li><a href="quienes-somos.html" class="nav__link">Quiénes somos</a></li>
+      <li><a href="proyectos.html" class="nav__link">Proyectos</a></li>
+      <li><a href="blog.html" class="nav__link">Blog</a></li>
+      <li><a href="citas.html" class="nav__link nav__link--cta">Reservar cita</a></li>
     </ul>
   </nav>
-
-  <!-- HERO -->
+ 
   <section class="hero">
     <div class="hero__content">
       <p class="hero__eyebrow reveal">Asesoría gastronómica</p>
       <h1 class="hero__title reveal">Tu idea de<br /><em>negocio</em><br />tiene solución.</h1>
-      <p class="hero__sub reveal">Acompañamos proyectos de hostelería desde la idea hasta la apertura. Estrategia, operativa y resultados reales.</p>
+      <p class="hero__sub reveal">Ayudamos a abrir negocios de hostelería desde el principio. Desde la idea hasta la apertura.</p>
       <div class="hero__actions reveal">
-        <a href="pages/citas.html" class="btn btn--dark">Reservar cita</a>
-        <a href="pages/ideas.html" class="btn btn--outline">Enviar mi idea</a>
+        <a href="citas.html" class="btn btn--dark">Reservar cita</a>
+        <a href="cajon.html" class="btn btn--outline">Enviar mi idea</a>
       </div>
     </div>
     <div class="hero__visual reveal">
@@ -45,16 +43,14 @@
       </div>
     </div>
   </section>
-
-  <!-- INTRO -->
+ 
   <section class="intro">
     <div class="intro__inner">
       <p class="intro__text reveal">Muchas ideas de hostelería nunca llegan a abrirse.<br />No por falta de ilusión, sino por falta de orientación.</p>
       <div class="intro__line reveal"></div>
     </div>
   </section>
-
-  <!-- SERVICIOS -->
+ 
   <section class="servicios">
     <div class="servicios__header reveal">
       <span class="label">Lo que hacemos</span>
@@ -64,33 +60,31 @@
       <div class="servicio reveal">
         <span class="servicio__num">01</span>
         <h3 class="servicio__title">Test de viabilidad</h3>
-        <p class="servicio__desc">Antes de invertir un euro, analizamos si tu idea tiene recorrido real en el mercado.</p>
-        <a href="pages/ideas.html" class="servicio__link">Enviar mi idea →</a>
+        <p class="servicio__desc">Antes de invertir dinero, miramos si tu idea tiene recorrido real en el mercado.</p>
+        <a href="ideas.html" class="servicio__link">Enviar mi idea →</a>
       </div>
       <div class="servicio reveal">
         <span class="servicio__num">02</span>
         <h3 class="servicio__title">Consultoría estratégica</h3>
-        <p class="servicio__desc">Definimos el concepto, el modelo de negocio y el posicionamiento para que tu proyecto destaque.</p>
-        <a href="pages/citas.html" class="servicio__link">Reservar cita →</a>
+        <p class="servicio__desc">Definimos el concepto y el modelo de negocio para que tu proyecto tenga una base sólida.</p>
+        <a href="citas.html" class="servicio__link">Reservar cita →</a>
       </div>
       <div class="servicio reveal">
         <span class="servicio__num">03</span>
         <h3 class="servicio__title">Operativa y apertura</h3>
-        <p class="servicio__desc">Desde la carta hasta los procesos internos. Acompañamos la puesta en marcha hasta que todo funciona.</p>
-        <a href="pages/proyectos.html" class="servicio__link">Ver proyectos →</a>
+        <p class="servicio__desc">Desde la carta hasta los procesos del día a día. Estamos contigo hasta que todo funciona.</p>
+        <a href="proyectos.html" class="servicio__link">Ver proyectos →</a>
       </div>
     </div>
   </section>
-
-  <!-- PROYECTOS DESTACADOS -->
+ 
   <section class="proyectos-home">
     <div class="proyectos-home__header reveal">
       <span class="label">Casos de éxito</span>
       <h2>Proyectos que<br />funcionan.</h2>
-      <a href="pages/proyectos.html" class="btn btn--outline">Ver todos</a>
+      <a href="proyectos.html" class="btn btn--outline">Ver todos</a>
     </div>
     <div class="proyectos-home__grid" id="proyectos-grid">
-      <!-- Se cargan desde la API -->
       <div class="proyecto-card reveal">
         <div class="proyecto-card__img"></div>
         <div class="proyecto-card__info">
@@ -101,23 +95,21 @@
       </div>
     </div>
   </section>
-
-  <!-- CTA CAJON DE IDEAS -->
+ 
   <section class="cta-ideas reveal">
     <div class="cta-ideas__inner">
       <span class="label label--light">Cajón de ideas</span>
       <h2>¿Tienes una idea<br />pero no sabes<br />por dónde empezar?</h2>
       <p>Cuéntanosla. En menos de 48 horas te decimos si tiene potencial y cómo podemos ayudarte.</p>
-      <a href="pages/ideas.html" class="btn btn--light">Enviar mi idea</a>
+      <a href="ideas.html" class="btn btn--light">Enviar mi idea</a>
     </div>
   </section>
-
-  <!-- BLOG HOME -->
+ 
   <section class="blog-home">
     <div class="blog-home__header reveal">
       <span class="label">Blog</span>
       <h2>Artículos sobre<br />hostelería y negocio.</h2>
-      <a href="pages/blog.html" class="btn btn--outline">Ver todos</a>
+      <a href="blog.html" class="btn btn--outline">Ver todos</a>
     </div>
     <div class="blog-home__grid" id="blog-grid">
       <div class="blog-card reveal">
@@ -130,28 +122,26 @@
       </div>
     </div>
   </section>
-
-  <!-- FOOTER -->
+ 
   <footer class="footer">
     <div class="footer__top">
       <div class="footer__brand">
         <span class="footer__logo">Nodu</span>
-        <p>Asesoría gastronómica para proyectos con recorrido real.</p>
+        <p>Asesoría gastronómica para proyectos de hostelería.</p>
       </div>
       <div class="footer__links">
-        <a href="pages/quienes-somos.html">Quiénes somos</a>
-        <a href="pages/proyectos.html">Proyectos</a>
-        <a href="pages/blog.html">Blog</a>
-        <a href="pages/ideas.html">Cajón de ideas</a>
-        <a href="pages/citas.html">Reservar cita</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="blog.html">Blog</a>
+        <a href="ideas.html">Cajón de ideas</a>
+        <a href="citas.html">Reservar cita</a>
       </div>
     </div>
-    <div class="footer__bottom">
-      <p>© 2025 Nodu. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-
-<script src="js/main.js"></script>
+<div class="footer__bottom">
+  <p>© 2025 Nodu. Todos los derechos reservados.</p>
+  <a href="login.html" class="footer__admin">·</a>
+</div>
+ 
+  <script src="js/main.js"></script>
 </body>
 </html>

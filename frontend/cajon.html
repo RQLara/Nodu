@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cajón de ideas | Nodu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/cajon.css" />
+</head>
+<body>
+ 
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">Nodu</a>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__menu" id="menu">
+      <li><a href="index.html" class="nav__link">Inicio</a></li>
+      <li><a href="quienes-somos.html" class="nav__link">Quiénes somos</a></li>
+      <li><a href="proyectos.html" class="nav__link">Proyectos</a></li>
+      <li><a href="blog.html" class="nav__link">Blog</a></li>
+      <li><a href="citas.html" class="nav__link nav__link--cta">Reservar cita</a></li>
+    </ul>
+  </nav>
+ 
+  <section class="cabecera">
+    <span class="label">Cajón de ideas</span>
+    <h1>Cuéntanos tu <em>idea</em></h1>
+    <p>Da igual en qué punto esté. Pablo te responde en menos de 48 horas.</p>
+  </section>
+ 
+  <div class="contenido">
+ 
+    <aside class="columna-info">
+      <h2>¿Para qué sirve?</h2>
+      <p>Es el primer paso. Cuéntanos tu proyecto y Pablo lo revisa personalmente.</p>
+ 
+      <div class="linea-acento"></div>
+ 
+      <div class="pasos">
+        <h3>Cómo funciona</h3>
+        <div class="paso">
+          <span class="paso-num">01</span>
+          <span class="paso-texto">Rellenas el formulario con tu idea</span>
+        </div>
+        <div class="paso">
+          <span class="paso-num">02</span>
+          <span class="paso-texto">Pablo lo revisa y te responde en 48h</span>
+        </div>
+        <div class="paso">
+          <span class="paso-num">03</span>
+          <span class="paso-texto">Si encaja, organizamos una primera consulta gratuita</span>
+        </div>
+      </div>
+    </aside>
+ 
+    <div class="tarjeta-formulario">
+ 
+      <div class="exito" id="exito">
+        <div class="exito-icono">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3>Idea recibida</h3>
+        <p>Pablo la revisará y te escribirá en menos de 48 horas.</p>
+        <button class="boton-nuevo" onclick="reiniciarFormulario()">Enviar otra idea</button>
+      </div>
+ 
+      <div class="campos" id="campos">
+        <h3>Tu idea</h3>
+        <p class="subtitulo">Todos los campos son obligatorios salvo la ubicación.</p>
+ 
+        <form id="formularioIdeas" novalidate>
+ 
+          <div class="campo">
+            <label for="nombre-idea">Nombre de la idea o el negocio</label>
+            <input type="text" id="nombre-idea" placeholder="Ej: La Taberna de Marcos" />
+            <span class="mensaje-error" id="errorNombreIdea">Introduce el nombre de tu idea</span>
+          </div>
+ 
+          <div class="campo">
+            <label for="concepto">Describe tu idea con tus palabras</label>
+            <textarea id="concepto" placeholder="Cuéntanos de qué va tu proyecto, qué lo hace diferente, qué quieres transmitir..." maxlength="500"></textarea>
+            <span class="contador" id="contadorConcepto">0 / 500</span>
+            <span class="mensaje-error" id="errorConcepto">Describe tu idea</span>
+          </div>
+ 
+          <div class="campo">
+            <label for="diferencial">¿Qué aporta que no tenga la competencia?</label>
+            <textarea id="diferencial" placeholder="Ej: No hay ningún sitio en mi ciudad que haga cocina asturiana tradicional, solo cadenas de comida rápida..." maxlength="500"></textarea>
+            <span class="contador" id="contadorDiferencial">0 / 500</span>
+            <span class="mensaje-error" id="errorDiferencial">Explica qué aporta tu idea</span>
+          </div>
+ 
+          <div class="campo">
+            <label for="competencia">Ejemplos de competencia</label>
+            <input type="text" id="competencia" placeholder="Ej: McDonald's, el bar de la esquina, restaurantes italianos de la zona..." />
+            <span class="mensaje-error" id="errorCompetencia">Indica algunos ejemplos de competencia</span>
+          </div>
+ 
+          <div class="fila-doble">
+            <div class="campo">
+              <label for="tipo-comida">Tipo de comida</label>
+              <select id="tipo-comida">
+                <option value="">Selecciona una opción</option>
+                <option value="española">Cocina española</option>
+                <option value="italiana">Italiana</option>
+                <option value="asiatica">Asiática</option>
+                <option value="mexicana">Mexicana</option>
+                <option value="americana">Americana</option>
+                <option value="mediterranea">Mediterránea</option>
+                <option value="fusion">Fusión</option>
+                <option value="saludable">Saludable / vegana</option>
+                <option value="reposteria">Repostería / pastelería</option>
+                <option value="bocadillos">Bocadillos / sándwiches</option>
+                <option value="otro">Otro</option>
+              </select>
+              <span class="mensaje-error" id="errorTipoComida">Selecciona el tipo de comida</span>
+            </div>
+            <div class="campo">
+              <label for="ticket">Ticket medio aproximado</label>
+              <select id="ticket">
+                <option value="">Selecciona una opción</option>
+                <option value="menos-10">Menos de 10€</option>
+                <option value="10-20">10€ — 20€</option>
+                <option value="20-35">20€ — 35€</option>
+                <option value="35-60">35€ — 60€</option>
+                <option value="mas-60">Más de 60€</option>
+                <option value="no-lo-se">No lo sé todavía</option>
+              </select>
+              <span class="mensaje-error" id="errorTicket">Selecciona el ticket medio</span>
+            </div>
+          </div>
+ 
+          <div class="fila-doble">
+            <div class="campo">
+              <label for="formato">Formato</label>
+              <select id="formato">
+                <option value="">Selecciona una opción</option>
+                <option value="local">Local físico</option>
+                <option value="foodtruck">Food truck</option>
+                <option value="stand">Stand</option>
+                <option value="delivery">Solo delivery</option>
+                <option value="domicilio">A domicilio</option>
+                <option value="otro">Otro</option>
+              </select>
+              <span class="mensaje-error" id="errorFormato">Selecciona el formato</span>
+            </div>
+            <div class="campo">
+              <label for="estado">¿En qué punto está?</label>
+              <select id="estado">
+                <option value="">Selecciona una opción</option>
+                <option value="idea">Solo es una idea</option>
+                <option value="estudiando">Lo estoy estudiando</option>
+                <option value="buscando-local">Buscando local</option>
+                <option value="en-marcha">Ya está en marcha</option>
+              </select>
+              <span class="mensaje-error" id="errorEstado">Indica en qué punto está</span>
+            </div>
+          </div>
+ 
+          <div class="campo">
+            <label for="publico">¿A quién va dirigido?</label>
+            <input type="text" id="publico" placeholder="Ej: Familias, jóvenes universitarios, oficinas cercanas..." />
+            <span class="mensaje-error" id="errorPublico">Describe a quién va dirigido</span>
+          </div>
+ 
+          <div class="campo">
+            <label for="ubicacion">Ubicación (opcional)</label>
+            <input type="text" id="ubicacion" placeholder="Ej: Madrid, Barcelona, zona centro..." />
+          </div>
+ 
+          <div class="separador"></div>
+ 
+          <div class="fila-doble">
+            <div class="campo">
+              <label for="nombre-contacto">Tu nombre</label>
+              <input type="text" id="nombre-contacto" placeholder="Ej: María" />
+              <span class="mensaje-error" id="errorNombreContacto">Introduce tu nombre</span>
+            </div>
+            <div class="campo">
+              <label for="email-contacto">Tu email</label>
+              <input type="email" id="email-contacto" placeholder="Ej: maria@correo.com" />
+              <span class="mensaje-error" id="errorEmailContacto">Introduce un email válido</span>
+            </div>
+          </div>
+ 
+          <button type="submit" class="boton-enviar" id="botonEnviar">Enviar mi idea</button>
+ 
+        </form>
+      </div>
+ 
+    </div>
+  </div>
+ 
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="footer__logo">Nodu</span>
+        <p>Asesoría gastronómica para proyectos de hostelería.</p>
+      </div>
+      <div class="footer__links">
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="blog.html">Blog</a>
+        <a href="cajon.html">Cajón de ideas</a>
+        <a href="citas.html">Reservar cita</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Nodu. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+ 
+
+  <script src="js/cajon.js"></script>
+
+</body>
+</html>

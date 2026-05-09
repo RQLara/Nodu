@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso | Nodu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d0d0d;
+      color: #f5f0e8;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .caja {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .subtitulo {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c8a96e;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,169,110,0.2);
+      padding: 2rem;
+    }
+
+    .campo { margin-bottom: 1.2rem; }
+
+    label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c8a96e;
+      margin-bottom: 0.4rem;
+    }
+
+    input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(245,240,232,0.12);
+      color: #f5f0e8;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus { border-color: #c8a96e; }
+
+    .error {
+      display: none;
+      background: rgba(192,57,43,0.15);
+      border: 1px solid rgba(192,57,43,0.4);
+      color: #e74c3c;
+      font-size: 0.83rem;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .error.visible { display: block; }
+
+    .btn {
+      width: 100%;
+      background: #c8a96e;
+      color: #0d0d0d;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: #b8955a; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .volver { text-align: center; margin-top: 1.5rem; }
+    .volver a { font-size: 0.78rem; color: #6b6b6b; text-decoration: none; }
+    .volver a:hover { color: #f5f0e8; }
+  </style>
+</head>
+<body>
+
+  <div class="caja">
+    <div class="logo">Nodu</div>
+    <div class="subtitulo">Área de administración</div>
+
+    <div class="card">
+      <div class="error" id="error">Email o contraseña incorrectos.</div>
+
+      <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="pablollorentechef@gmail.com" />
+      </div>
+
+  <div class="campo">
+  <label for="pass">Contraseña</label>
+  <input type="password" id="pass" placeholder="••••••••" autocomplete="current-password" />
+
+</div>
+
+      <button class="btn" id="btn" onclick="entrar()">Entrar</button>
+    </div>
+
+    <div class="volver">
+      <a href="index.html">← Volver a la web</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const supabase = createClient(
+      'https://ocrkxrbcuhqcinjmgxtj.supabase.co',
+      'sb_publishable_s3hu3sD73X-nCNK4v8NkrQ_zar6ijJq'
+    );
+
+    // Si ya está logueado ir directo al panel
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) window.location.href = 'admin.html';
+
+    window.entrar = async function() {
+      const email = document.getElementById('email').value.trim();
+      const pass  = document.getElementById('pass').value;
+      const btn   = document.getElementById('btn');
+      const errorDiv = document.getElementById('error');
+
+      errorDiv.classList.remove('visible');
+      btn.disabled = true;
+      btn.textContent = 'Accediendo...';
+
+      const { error } = await supabase.auth.signInWithPassword({ email, password: pass });
+
+      if (error) {
+        errorDiv.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Entrar';
+      } else {
+        window.location.href = 'admin.html';
+      }
+    };
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter') window.entrar();
+    });
+  </script>
+
+</body>
+</html>

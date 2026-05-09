@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Nodu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+<body>
+ 
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">Nodu</a>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__menu" id="menu">
+      <li><a href="index.html" class="nav__link">Inicio</a></li>
+      <li><a href="quienes-somos.html" class="nav__link">Quiénes somos</a></li>
+      <li><a href="proyectos.html" class="nav__link">Proyectos</a></li>
+      <li><a href="blog.html" class="nav__link active">Blog</a></li>
+      <li><a href="citas.html" class="nav__link nav__link--cta">Reservar cita</a></li>
+    </ul>
+  </nav>
+ 
+  <section class="cabecera-blog">
+    <span class="label">Blog</span>
+    <h1>Artículos sobre<br /><em>hostelería</em> y negocio.</h1>
+  </section>
+ 
+  <section class="blog-lista">
+    <div class="blog-lista__grid" id="blog-grid">
+      <p class="blog-cargando">Cargando artículos...</p>
+    </div>
+  </section>
+ 
+  <div id="articulo-contenedor"></div>
+ 
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="footer__logo">Nodu</span>
+        <p>Asesoría gastronómica para proyectos de hostelería.</p>
+      </div>
+      <div class="footer__links">
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="blog.html">Blog</a>
+        <a href="cajon.html">Cajón de ideas</a>
+        <a href="citas.html">Reservar cita</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Nodu. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+ 
+  <script src="js/supabase.js"></script>
+  <script src="js/blog.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

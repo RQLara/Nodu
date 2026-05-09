@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel | Nodu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span>Nodu</span>
+      <small>Panel de gestión</small>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-item activo" data-sec="dashboard" onclick="ir(this)">⊞ Resumen</div>
+      <div class="nav-item" data-sec="citas"     onclick="ir(this)">◷ Citas</div>
+      <div class="nav-item" data-sec="ideas"     onclick="ir(this)">◈ Ideas</div>
+      <div class="nav-item" data-sec="proyectos" onclick="ir(this)">◻ Proyectos</div>
+      <div class="nav-item" data-sec="blog"      onclick="ir(this)">◎ Blog</div>
+    </nav>
+    <div class="sidebar-footer">
+      <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section id="sec-dashboard" class="sec activa">
+      <h1>Bienvenido, Pablo</h1>
+      <div class="stats">
+        <div class="stat"><span id="n-citas">—</span><small>Citas pendientes</small></div>
+        <div class="stat"><span id="n-ideas">—</span><small>Ideas recibidas</small></div>
+        <div class="stat"><span id="n-proyectos">—</span><small>Proyectos</small></div>
+        <div class="stat"><span id="n-blog">—</span><small>Artículos</small></div>
+      </div>
+    </section>
+
+    <!-- CITAS -->
+    <section id="sec-citas" class="sec">
+      <h1>Citas</h1>
+      <div id="lista-citas">Cargando...</div>
+    </section>
+
+    <!-- IDEAS -->
+    <section id="sec-ideas" class="sec">
+      <h1>Ideas recibidas</h1>
+      <div id="lista-ideas">Cargando...</div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="sec-proyectos" class="sec">
+      <div class="sec-head">
+        <h1>Proyectos</h1>
+        <button class="btn-oro" onclick="abrirModal('proyectos')">+ Nuevo</button>
+      </div>
+      <div id="lista-proyectos">Cargando...</div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="sec-blog" class="sec">
+      <div class="sec-head">
+        <h1>Blog</h1>
+        <button class="btn-oro" onclick="abrirModal('blog')">+ Nuevo artículo</button>
+      </div>
+      <div id="lista-blog">Cargando...</div>
+    </section>
+
+  </main>
+
+  <!-- MODAL PROYECTOS -->
+  <div class="overlay" id="modal-proyectos">
+    <div class="modal">
+      <h2 id="tit-proyectos">Nuevo proyecto</h2>
+      <input type="hidden" id="p-id" />
+      <label>Nombre</label>
+      <input type="text" id="p-nombre" placeholder="Restaurante La Mar..." />
+      <label>Descripción</label>
+      <textarea id="p-desc" placeholder="En qué consistió el proyecto..."></textarea>
+      <label>Tipo de servicio</label>
+      <input type="text" id="p-tipo" placeholder="Consultoría de carta, formación..." />
+      <label>URL de imagen</label>
+      <input type="text" id="p-imagen" placeholder="https://..." />
+      <label>Estado</label>
+      <select id="p-estado">
+        <option value="publicado">Publicado</option>
+        <option value="borrador">Borrador</option>
+      </select>
+      <div class="modal-btns">
+        <button onclick="cerrarModal('proyectos')">Cancelar</button>
+        <button class="btn-oro" onclick="guardar('proyectos')">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL BLOG -->
+  <div class="overlay" id="modal-blog">
+    <div class="modal">
+      <h2 id="tit-blog">Nuevo artículo</h2>
+      <input type="hidden" id="b-id" />
+      <label>Título</label>
+      <input type="text" id="b-titulo" placeholder="10 claves para optimizar tu carta..." />
+      <label>Resumen corto</label>
+      <textarea id="b-extracto" placeholder="Breve descripción del artículo..."></textarea>
+      <label>Contenido</label>
+      <textarea id="b-contenido" style="min-height:160px" placeholder="Escribe el artículo completo..."></textarea>
+      <label>URL de imagen</label>
+      <input type="text" id="b-imagen" placeholder="https://..." />
+      <label>Estado</label>
+      <select id="b-estado">
+        <option value="publicado">Publicado</option>
+        <option value="borrador">Borrador</option>
+      </select>
+      <div class="modal-btns">
+        <button onclick="cerrarModal('blog')">Cancelar</button>
+        <button class="btn-oro" onclick="guardar('blog')">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <div class="overlay" id="modal-confirm">
+  <div class="modal" style="max-width:360px;text-align:center">
+    <p id="confirm-msg" style="font-size:0.92rem;line-height:1.7;margin-bottom:1.8rem"></p>
+    <div class="modal-btns" style="justify-content:center">
+      <button onclick="confirmRespuesta(false)">Cancelar</button>
+      <button class="btn-oro" onclick="confirmRespuesta(true)">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+  <script type="module" src="js/admin.js"></script>
+
+  
+</body>
+</html>

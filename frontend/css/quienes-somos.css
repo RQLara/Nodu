@@ -1,0 +1,262 @@
+.cabecera {
+  background: var(--negro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 7rem 2rem 4rem;
+  border-bottom: 1px solid var(--acento);
+}
+ 
+.cabecera .label {
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+ 
+.cabecera h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: var(--blanco);
+}
+ 
+.cabecera h1 em {
+  color: var(--acento);
+}
+ 
+.cabecera p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+ 
+/* PERFIL */
+.perfil {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+ 
+.perfil__imagen img {
+  width: 100%;
+  display: block;
+}
+ 
+.perfil__texto h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+ 
+.linea-acento {
+  width: 40px;
+  height: 1px;
+  background: var(--acento);
+  margin: 1.5rem 0;
+}
+ 
+.perfil__texto p {
+  font-size: 0.95rem;
+  color: var(--gris-texto);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+ 
+.perfil__texto p strong {
+  color: var(--negro);
+  font-weight: 500;
+}
+ 
+/* FORMACIÓN */
+.formacion {
+  padding: 6rem 4rem;
+  background: var(--gris-claro);
+}
+ 
+.formacion__header {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+ 
+.formacion__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+ 
+.formacion-item {
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--gris-medio);
+}
+ 
+.formacion-item:nth-child(odd) {
+  border-right: 1px solid var(--gris-medio);
+}
+ 
+.formacion-item__año {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--acento);
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+ 
+.formacion-item h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+ 
+.formacion-item p {
+  font-size: 0.88rem;
+  color: var(--gris-texto);
+  line-height: 1.8;
+  font-weight: 300;
+}
+ 
+/* PREMIOS */
+.premios {
+  padding: 6rem 4rem;
+  background: var(--negro);
+  color: var(--blanco);
+}
+ 
+.premios__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+ 
+.premios__texto .label {
+  color: rgba(255, 255, 255, 0.5);
+}
+ 
+.premios__texto h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--blanco);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+ 
+.premios__texto p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+ 
+.premio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+ 
+.premio-item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+ 
+.premio-item__num {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--acento);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+ 
+.premio-item__nombre {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  line-height: 1.6;
+}
+ 
+/* RESTAURANTES */
+.restaurantes {
+  padding: 6rem 4rem;
+}
+ 
+.restaurantes__header {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+ 
+.restaurantes__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+ 
+.restaurante-item {
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--gris-medio);
+  border-right: 1px solid var(--gris-medio);
+}
+ 
+.restaurante-item:last-child {
+  border-right: none;
+}
+ 
+.restaurante-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+ 
+.restaurante-item p {
+  font-size: 0.82rem;
+  color: var(--gris-texto);
+  font-weight: 300;
+}
+ 
+/* CTA */
+.cta-citas {
+  padding: 8rem 4rem;
+  background: var(--negro);
+  color: var(--blanco);
+}
+ 
+.cta-citas__inner h2 {
+  color: var(--blanco);
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  line-height: 1.2;
+}
+ 
+/* Responsive */
+@media (max-width: 1024px) {
+  .perfil { padding: 5rem 2rem; gap: 3rem; }
+  .formacion { padding: 5rem 2rem; }
+  .premios { padding: 5rem 2rem; }
+  .restaurantes { padding: 5rem 2rem; }
+  .cta-citas { padding: 6rem 2rem; }
+  .restaurantes__grid { grid-template-columns: repeat(2, 1fr); }
+}
+ 
+@media (max-width: 768px) {
+  .cabecera h1 { font-size: 2.8rem; }
+  .perfil { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
+  .formacion__grid { grid-template-columns: 1fr; }
+  .formacion-item:nth-child(odd) { border-right: none; }
+  .premios__inner { grid-template-columns: 1fr; gap: 3rem; }
+  .premios__texto h2 { font-size: 2.2rem; }
+  .restaurantes__grid { grid-template-columns: 1fr 1fr; }
+  .cta-citas { padding: 5rem 2rem; }
+  .cta-citas__inner h2 { font-size: 2.2rem; }
+}
