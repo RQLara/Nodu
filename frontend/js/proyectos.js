@@ -11,23 +11,25 @@ async function cargarProyectos() {
   const { data, error } = await supabase
     .from('proyectos')
     .select('*')
-    .eq('estado', 'publicado')
+    .eq('publicado', true)
     .order('created_at', { ascending: false });
 
   if (error || !data?.length) return;
 
-  grid.innerHTML = data.map(p => `
-    <div class="proyecto-card">
-      <div class="proyecto-card__img">
-        ${p.imagen_url ? `<img src="${p.imagen_url}" alt="${p.nombre}" />` : ''}
-      </div>
-      <div class="proyecto-card__info">
-        <span class="proyecto-card__tipo">${p.tipo || 'Proyecto'}</span>
-        <h3 class="proyecto-card__titulo">${p.nombre}</h3>
-        <p class="proyecto-card__desc">${(p.descripcion || '').substring(0, 140)}${p.descripcion?.length > 140 ? '...' : ''}</p>
-      </div>
-    </div>
-  `).join('');
+  var html = '';
+  data.forEach(function(p) {
+    html += '<section class="proyecto-destacado">';
+    html += '<div class="proyecto-destacado__img"><img src="' + p.imagen_url + '" alt="' + p.nombre + '" /></div>';
+    html += '<div class="proyecto-destacado__info">';
+    html += '<span class="label">' + p.tipo + '</span>';
+    html += '<h2>' + p.nombre + '</h2>';
+    html += '<p>' + p.descripcion + '</p>';
+    html += '<p>' + p.problema + '</p>';
+    html += '<p>' + p.solucion + '</p>';
+    html += '<p>' + p.resultados + '</p>';
+    html += '</div></section>';
+  });
+  grid.innerHTML = html;
 }
 
 cargarProyectos();

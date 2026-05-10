@@ -18,8 +18,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
-  border-top: 1px solid var(--gris-medio);
-  border-bottom: 1px solid var(--gris-medio);
+  height: auto;
 }
 
 .proyecto-destacado__img {
@@ -42,9 +41,10 @@
   padding: 5rem 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.2rem;
   background: var(--gris-claro);
+  overflow-y: auto;
 }
 
 .proyecto-destacado__info h2 {
@@ -57,7 +57,6 @@
   color: var(--gris-texto);
   font-weight: 300;
   line-height: 1.8;
-  max-width: 480px;
 }
 
 .proyectos-lista {
@@ -65,9 +64,7 @@
 }
 
 .proyectos-lista__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  display: block;
 }
 
 .proyecto-card {

@@ -5,7 +5,7 @@ async function cargarArticulos() {
   const { data: articulos, error } = await supabaseClient
     .from('blog')
     .select('*')
-    .eq('estado', 'publicado')
+    .eq('publicado', true)
     .order('created_at', { ascending: false });
 
   if (error) {

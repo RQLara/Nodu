@@ -1,7 +1,3 @@
-// Configuración Supabase
-var SUPABASE_URL = 'https://ocrkxrbcuhqcinjmgxtj.supabase.co';
-var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jcmt4cmJjdWhxY2luam1neHRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Njc5MjMsImV4cCI6MjA4ODQ0MzkyM30.FDOfw22e1SxZg_SXIU9Zy0dtRvu-TLGODTSaPi3xUs4';
-
 // Nav scroll
 window.addEventListener('scroll', function() {
   var nav = document.getElementById('nav');
@@ -88,31 +84,22 @@ document.getElementById('formularioIdeas').addEventListener('submit', async func
     descripcion:      document.getElementById('concepto').value.trim(),
     diferencial:      document.getElementById('diferencial').value.trim(),
     competencia:      document.getElementById('competencia').value.trim(),
-    tipo_comida:      document.getElementById('tipo-comida').value,
-    precio_medio:     document.getElementById('ticket').value,
+    precio_medio: Number(document.getElementById('ticket').value),
     formato:          document.getElementById('formato').value,
     estado_proyecto:  document.getElementById('estado').value,
     publico_objetivo: document.getElementById('publico').value.trim(),
     ubicacion:        document.getElementById('ubicacion').value.trim(),
     nombre_contacto:  document.getElementById('nombre-contacto').value.trim(),
-    email_contacto:   document.getElementById('email-contacto').value.trim()
+    email_contacto:   document.getElementById('email-contacto').value.trim(),
+    tipo_actividad: document.getElementById('tipo-comida').value ,
+    tipo_comida:      document.getElementById('tipo-comida').value
   };
+try {
+    const { error } = await supabaseClient
+      .from('ideas')
+      .insert([datos]);
 
-  try {
-    var respuesta = await fetch(SUPABASE_URL + '/rest/v1/ideas', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_KEY,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify(datos)
-    });
-
-    if (!respuesta.ok) {
-      throw new Error('Error al enviar');
-    }
+    if (error) throw error;
 
     document.getElementById('campos').classList.add('oculto');
     document.getElementById('exito').classList.add('visible');
@@ -123,7 +110,6 @@ document.getElementById('formularioIdeas').addEventListener('submit', async func
     boton.textContent = 'Enviar mi idea';
   }
 });
-
 // Reiniciar formulario
 function reiniciarFormulario() {
   document.getElementById('formularioIdeas').reset();
