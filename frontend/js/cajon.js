@@ -84,7 +84,7 @@ document.getElementById('formularioIdeas').addEventListener('submit', async func
     descripcion:      document.getElementById('concepto').value.trim(),
     diferencial:      document.getElementById('diferencial').value.trim(),
     competencia:      document.getElementById('competencia').value.trim(),
-    precio_medio: Number(document.getElementById('ticket').value),
+    precio_medio: document.getElementById('ticket').value,
     formato:          document.getElementById('formato').value,
     estado_proyecto:  document.getElementById('estado').value,
     publico_objetivo: document.getElementById('publico').value.trim(),
@@ -100,6 +100,8 @@ try {
       .insert([datos]);
 
     if (error) throw error;
+    console.log('Datos enviados:', datos);
+console.log('Error:', error);
 
     document.getElementById('campos').classList.add('oculto');
     document.getElementById('exito').classList.add('visible');
