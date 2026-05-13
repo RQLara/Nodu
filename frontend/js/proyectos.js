@@ -24,9 +24,9 @@ async function cargarProyectos() {
     html += '<span class="label">' + p.tipo + '</span>';
     html += '<h2>' + p.nombre + '</h2>';
     html += '<p>' + p.descripcion + '</p>';
-    html += '<p>' + p.problema + '</p>';
-    html += '<p>' + p.solucion + '</p>';
-    html += '<p>' + p.resultados + '</p>';
+ if (p.problema) html += '<p>' + p.problema + '</p>';
+if (p.solucion) html += '<p>' + p.solucion + '</p>';
+if (p.resultados) html += '<p>' + p.resultados + '</p>';
     html += '</div></section>';
   });
   grid.innerHTML = html;
